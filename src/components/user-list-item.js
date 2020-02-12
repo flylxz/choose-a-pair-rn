@@ -35,7 +35,7 @@ export function UserListItem({user}) {
   } else {
     return (
       <View>
-        <Text style={styles.separationText}>{first_name[0]}</Text>
+        {/* <Text style={styles.separationText}>{first_name[0]}</Text> */}
         <View style={styles.listItem}>
           <Text style={statusCheck(status)}>
             #{id} - {first_name} {last_name} - {''}

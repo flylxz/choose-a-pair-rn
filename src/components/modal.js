@@ -1,5 +1,12 @@
 import React from 'react';
-import {StyleSheet, View, Text, Modal, Button} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Modal,
+  Button,
+  TouchableOpacity,
+} from 'react-native';
 
 export function ChooseModal({
   chooseModal,
@@ -13,25 +20,25 @@ export function ChooseModal({
         <Text style={styles.modalText}>
           Are you sure you want to invite user with id = {chooseModal[1]}?
         </Text>
-        <Button
-          style={styles.modalButton}
-          title="yes"
-          color="lightgreen"
-          onPress={() => {
-            setConfirmModal(true);
-            onDelete(chooseModal[1]);
-          }}
-        />
-        <View style={styles.dummy}></View>
-        <Button
-          style={styles.modalButton}
-          title="no"
-          color="coral"
-          onPress={() => {
-            setChooseModal([false, null]);
-          }}
-        />
-        <View style={styles.dummy}></View>
+        <View style={styles.buttonBlock}>
+          <TouchableOpacity
+            style={[styles.button, styles.buttonOk]}
+            title="yes"
+            color="lightgreen"
+            onPress={() => {
+              setConfirmModal(true);
+              onDelete(chooseModal[1]);
+            }}>
+            <Text>Yes</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.button, styles.buttonNo]}
+            onPress={() => {
+              setChooseModal([false, null]);
+            }}>
+            <Text>No</Text>
+          </TouchableOpacity>
+        </View>
       </Modal>
     </View>
   );
@@ -43,16 +50,16 @@ export function ConfirmModal({setChooseModal, confirmModal, setConfirmModal}) {
       <Modal visible={confirmModal} animationType="fade">
         <View style={styles.modalContent}>
           <Text style={styles.modalText}>Invitation sent</Text>
-          <Button
-            style={styles.modalButton}
-            title="ok"
-            color="lightgreen"
-            onPress={() => {
-              setChooseModal([false, null]);
-              setConfirmModal(false);
-            }}
-          />
-          <View style={styles.dummy}></View>
+          <View style={styles.buttonBlock}>
+            <TouchableOpacity
+              style={[styles.button, styles.buttonOk]}
+              onPress={() => {
+                setChooseModal([false, null]);
+                setConfirmModal(false);
+              }}>
+              <Text>Ok</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </Modal>
     </View>
@@ -70,9 +77,26 @@ const styles = StyleSheet.create({
     color: '#c1c1c1',
     padding: 70,
   },
-  modalButton: {},
-  dummy: {
-    height: 30,
-    backgroundColor: '#374149',
+  buttonBlock: {
+    position: 'absolute',
+    bottom: 50,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  button: {
+    height: 40,
+    width: '40%',
+    elevation: 5,
+    borderRadius: 20,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonOk: {
+    backgroundColor: '#1aff1a',
+  },
+  buttonNo: {
+    backgroundColor: '#ff1a1a',
   },
 });

@@ -89,13 +89,9 @@ export function FilterForm(props) {
         </TouchableOpacity>
       </View>
       <View>
-        <Button
-          style={styles.button}
-          title="reset"
-          color="red"
-          onPress={handleReset}
-          // onPressIn={() => setSelectedChip('both')}
-        />
+        <TouchableOpacity style={styles.button} onPress={handleReset}>
+          <Text>Reset</Text>
+        </TouchableOpacity>
       </View>
       <View></View>
     </View>
@@ -174,5 +170,15 @@ const styles = StyleSheet.create({
   },
   chipTitle: {
     color: '#a2ff00',
+  },
+  button: {
+    backgroundColor: '#ff1a1a',
+    height: 40,
+    width: '50%',
+    elevation: 5,
+    borderRadius: 20,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

@@ -12,6 +12,18 @@ export function UserList({userList, onDelete}) {
     setChooseModal([true, id]);
   };
 
+  let titleLetter = '_';
+  const setTitleLetter = firstLetter => {
+    if (firstLetter === titleLetter) {
+      return null;
+    }
+
+    if (firstLetter !== titleLetter) {
+      titleLetter = firstLetter;
+      return `<${titleLetter}>`;
+    }
+  };
+
   return (
     <View style={styles.userList}>
       <ChooseModal
@@ -33,6 +45,10 @@ export function UserList({userList, onDelete}) {
             onPress={() => {
               handleClick(item.id);
             }}>
+            <Text>
+              {// if (item.first_name[0] !== letter) {
+              setTitleLetter(item.first_name[0])}
+            </Text>
             <UserListItem user={item} />
           </TouchableOpacity>
         )}
