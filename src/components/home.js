@@ -38,6 +38,12 @@ export function Home() {
     updateList();
   }, []);
 
+  // useEffect(() => {
+  //   if (userList.length > 0) {
+  //     calcMinMaxAge(userList);
+  //   }
+  // });
+
   const updateList = () => {
     goRestService.getResource().then(userList => {
       calcMinMaxAge(userList.result);
@@ -84,10 +90,10 @@ export function Home() {
   //-------- delete user from list on choose
 
   const onDelete = id => {
-    const tempUserList = [...userList];
-    tempUserList.filter(user => user.id !== id);
-    calcMinMaxAge(tempUserList);
-    return setUserList(tempUserList);
+    const tempList = [...userList].filter(user => user.id !== id);
+    calcMinMaxAge(tempList);
+    // return setUserList(userList.filter(user => user.id !== id));
+    return setUserList(tempList);
   };
 
   //---------- filters
@@ -208,13 +214,10 @@ export function Home() {
   const activeCount = userList.filter(user => user.status === 'active').length; // || '...';
 
   userList.sort(sortByFirstName);
-
   const filteredByGender = onSearchGender(userList, filter.gender);
-
   const filteredByName = onSearchUser(filteredByGender, filter.name);
   const filteredByAgeMin = onSearchAgeMin(filteredByName, filter.ageMin);
   const filteredByAgeMax = onSearchAgeMax(filteredByAgeMin, filter.ageMax);
-
   const visibleUsers = filteredByAgeMax;
 
   return (

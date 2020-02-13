@@ -101,11 +101,11 @@ export function FilterForm(props) {
 const styles = StyleSheet.create({
   hide: {
     position: 'absolute',
-    bottom: -200,
+    bottom: -500,
   },
   filterForm: {
     position: 'absolute',
-    top: 80,
+    top: 60,
     height: 250,
     width: '80%',
     marginHorizontal: 50,
