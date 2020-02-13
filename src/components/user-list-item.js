@@ -17,34 +17,16 @@ export function UserListItem({user}) {
       : styles.listItemTextInactive;
   };
 
-  let [letter, setLetter] = useState('_');
-
-  if (first_name[0] !== letter) {
-    setLetter(first_name[0]);
-    return (
-      <View>
-        {/* <Text style={styles.separationText}>{first_name[0]}</Text> */}
-        <View style={styles.listItem}>
-          <Text style={statusCheck(status)}>
-            #{id} - {first_name} {last_name} - {''}
-            {age} year old - {gender}
-          </Text>
-        </View>
+  return (
+    <View>
+      <View style={styles.listItem}>
+        <Text style={statusCheck(status)}>
+          #{id} - {first_name} {last_name} - {''}
+          {age} year old - {gender}
+        </Text>
       </View>
-    );
-  } else {
-    return (
-      <View>
-        {/* <Text style={styles.separationText}>{first_name[0]}</Text> */}
-        <View style={styles.listItem}>
-          <Text style={statusCheck(status)}>
-            #{id} - {first_name} {last_name} - {''}
-            {age} year old - {gender}
-          </Text>
-        </View>
-      </View>
-    );
-  }
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

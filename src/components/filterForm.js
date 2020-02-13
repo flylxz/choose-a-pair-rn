@@ -5,7 +5,6 @@ import {
   Text,
   TouchableOpacity,
   TextInput,
-  Button,
 } from 'react-native';
 
 export function FilterForm(props) {
@@ -42,7 +41,7 @@ export function FilterForm(props) {
       </View>
       <View style={styles.searchAge}>
         <View style={styles.ageColumn}>
-          <Text style={styles.ageTitle}>From</Text>
+          <Text style={styles.ageTitle}>Age from</Text>
           <TextInput
             placeholder={ageRange[0].toString()}
             placeholderTextColor="#71b300"
@@ -52,7 +51,7 @@ export function FilterForm(props) {
           />
         </View>
         <View style={styles.ageColumn}>
-          <Text style={styles.ageTitle}>To</Text>
+          <Text style={styles.ageTitle}>Age to</Text>
           <TextInput
             placeholder={ageRange[1].toString()}
             placeholderTextColor="#71b300"
@@ -62,6 +61,7 @@ export function FilterForm(props) {
           />
         </View>
       </View>
+      <Text style={styles.ageTitle}>Gender</Text>
       <View style={styles.searchGender}>
         <TouchableOpacity
           style={selectedChip === 'both' ? styles.active : styles.chip}
@@ -100,15 +100,12 @@ export function FilterForm(props) {
 
 const styles = StyleSheet.create({
   hide: {
-    // height: 0,
-    // width: 0,
-    // opacity: 0,
     position: 'absolute',
     bottom: -200,
   },
   filterForm: {
     position: 'absolute',
-    bottom: 80,
+    top: 80,
     height: 250,
     width: '80%',
     marginHorizontal: 50,

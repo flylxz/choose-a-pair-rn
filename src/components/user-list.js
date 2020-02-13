@@ -45,10 +45,7 @@ export function UserList({userList, onDelete}) {
             onPress={() => {
               handleClick(item.id);
             }}>
-            <Text>
-              {// if (item.first_name[0] !== letter) {
-              setTitleLetter(item.first_name[0])}
-            </Text>
+            <Text>{setTitleLetter(item.first_name[0])}</Text>
             <UserListItem user={item} />
           </TouchableOpacity>
         )}

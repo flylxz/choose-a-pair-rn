@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Modal,
-  Button,
-  TouchableOpacity,
-} from 'react-native';
+import {StyleSheet, View, Text, Modal, TouchableOpacity} from 'react-native';
 
 export function ChooseModal({
   chooseModal,
