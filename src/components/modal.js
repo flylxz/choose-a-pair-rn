@@ -87,9 +87,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonOk: {
-    backgroundColor: '#1aff1a',
+    backgroundColor: '#00ff00aa',
   },
   buttonNo: {
-    backgroundColor: '#ff1a1a',
+    backgroundColor: '#ff0000aa',
   },
 });

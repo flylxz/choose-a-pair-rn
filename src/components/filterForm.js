@@ -44,7 +44,7 @@ export function FilterForm(props) {
           <Text style={styles.ageTitle}>Age from</Text>
           <TextInput
             placeholder={ageRange[0].toString()}
-            placeholderTextColor="#71b300"
+            placeholderTextColor="#71b300aa"
             style={styles.ageInput}
             keyboardType="numeric"
             onChangeText={onFilterAgeMin}
@@ -54,7 +54,7 @@ export function FilterForm(props) {
           <Text style={styles.ageTitle}>Age to</Text>
           <TextInput
             placeholder={ageRange[1].toString()}
-            placeholderTextColor="#71b300"
+            placeholderTextColor="#71b300aa"
             style={styles.ageInput}
             keyboardType="numeric"
             onChangeText={onFilterAgeMax}
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     top: 60,
     height: 250,
     width: '80%',
-    marginHorizontal: 50,
+    marginHorizontal: 40,
     backgroundColor: '#595959cc',
     borderRadius: 20,
     justifyContent: 'space-between',
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     color: '#a2ff00',
   },
   button: {
-    backgroundColor: '#ff1a1a',
+    backgroundColor: '#ff0000aa',
     height: 40,
     width: '50%',
     elevation: 5,

@@ -1,5 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from 'react-native';
 import {Header} from './header';
 import {UserList} from './user-list';
 import {Loader} from './loader';
@@ -37,12 +42,6 @@ export function Home() {
   useEffect(() => {
     updateList();
   }, []);
-
-  // useEffect(() => {
-  //   if (userList.length > 0) {
-  //     calcMinMaxAge(userList);
-  //   }
-  // });
 
   const updateList = () => {
     goRestService.getResource().then(userList => {
@@ -221,20 +220,25 @@ export function Home() {
   const visibleUsers = filteredByAgeMax;
 
   return (
-    <View style={styles.container}>
-      <Header active={activeCount} />
-      <UserList userList={visibleUsers} onDelete={onDelete} />
-      <FilterForm
-        visible={filterVisible}
-        onFilterName={onFilterName}
-        onFilterGender={onFilterGender}
-        onFilterAgeMin={onFilterAgeMin}
-        onFilterAgeMax={onFilterAgeMax}
-        onFilterReset={onFilterReset}
-        ageRange={ageRange}
-      />
-      <FilterButton onFilterVisible={onFilterVisible} />
-    </View>
+    <TouchableWithoutFeedback
+      onPress={() => {
+        Keyboard.dismiss();
+      }}>
+      <View style={styles.container}>
+        <Header active={activeCount} />
+        <UserList userList={visibleUsers} onDelete={onDelete} />
+        <FilterForm
+          visible={filterVisible}
+          onFilterName={onFilterName}
+          onFilterGender={onFilterGender}
+          onFilterAgeMin={onFilterAgeMin}
+          onFilterAgeMax={onFilterAgeMax}
+          onFilterReset={onFilterReset}
+          ageRange={ageRange}
+        />
+        <FilterButton onFilterVisible={onFilterVisible} />
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 

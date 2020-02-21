@@ -41,13 +41,15 @@ export function UserList({userList, onDelete}) {
       <FlatList
         data={userList}
         renderItem={({item}) => (
-          <TouchableOpacity
-            onPress={() => {
-              handleClick(item.id);
-            }}>
+          <View>
             <Text>{setTitleLetter(item.first_name[0])}</Text>
-            <UserListItem user={item} />
-          </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                handleClick(item.id);
+              }}>
+              <UserListItem user={item} />
+            </TouchableOpacity>
+          </View>
         )}
         keyExtractor={item => item.id}
       />

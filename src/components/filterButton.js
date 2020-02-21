@@ -14,11 +14,11 @@ export function FilterButton({onFilterVisible}) {
 const styles = StyleSheet.create({
   floatButton: {
     position: 'absolute',
-    bottom: 20,
-    right: 20,
-    backgroundColor: '#ff0',
+    bottom: 10,
+    right: 10,
+    backgroundColor: '#ff08',
     height: 50,
-    width: 60,
+    width: 70,
     elevation: 5,
     borderRadius: 20,
     alignItems: 'center',
