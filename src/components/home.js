@@ -24,7 +24,7 @@ export function Home() {
 
   //-------- states
 
-  const [userList, setUserList] = useState([]); // || [];
+  const [userList, setUserList] = useState([]);
 
   const [filterVisible, setFilterVisible] = useState(false);
 
@@ -91,7 +91,6 @@ export function Home() {
   const onDelete = id => {
     const tempList = [...userList].filter(user => user.id !== id);
     calcMinMaxAge(tempList);
-    // return setUserList(userList.filter(user => user.id !== id));
     return setUserList(tempList);
   };
 
@@ -121,15 +120,21 @@ export function Home() {
   };
 
   const onSearchAgeMin = (userList, ageMin) => {
-    return userList.filter(
-      user => currentYear - getYearFromDob(user.dob) >= ageMin,
-    );
+    if (ageMin) {
+      return userList.filter(
+        user => currentYear - getYearFromDob(user.dob) >= ageMin,
+      );
+    }
+    return userList;
   };
 
   const onSearchAgeMax = (userList, ageMax) => {
-    return userList.filter(
-      user => currentYear - getYearFromDob(user.dob) <= ageMax,
-    );
+    if (ageMax) {
+      return userList.filter(
+        user => currentYear - getYearFromDob(user.dob) <= ageMax,
+      );
+    }
+    return userList;
   };
 
   //-------- server waiting emulation
